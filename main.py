@@ -2,9 +2,16 @@ def cesar_cipher(text, key):
     crypted_text = ""
     
     for char in text:
-        crypted_text += chr (ord(char) + key)
+        crypted_text += chr (ord(char) + key) % 1_114_112
 
     return crypted_text
 
-print(cesar_cipher("chocolat", 25))
+def cesar_uncipher(text, key):
+    crypted_text = ""
+
+    for char in text:
+       crypted_text += chr ((ord(char) - key) % 1_114_112)
+
+    return crypted_text 
+
 
